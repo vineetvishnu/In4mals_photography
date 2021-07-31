@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+::-moz-selection { /* Code for Firefox */
+  color: red;
+  background: powderblue;
+}
+
+::selection {
+  color: red;
+  background-color: powderblue;
+}
+
+body {
+
+	min-height: 100vh;
+}
+.fa-bars{
+	font-size: 25px;
+	color: #fff;
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
+	visibility: hidden;
+}
+nav {
+	position: sticky;
+	width: 100%;
+	top: 0;
+	z-index: 100;
+	display: grid;
+	place-items: center;
+	padding: 10px 10%;
+	background-color: #101d2e;
+	box-shadow: 0 20px 50px rgb(0 0 0/ 50%);
+	border-bottom: 3px solid #e8d57f;
+}
+
+.active{
+	width: 50%;
+	z-index: 1000;
+	display: grid;
+	grid-template-columns: 1;
+	padding: 10px;
+	
+}
+nav p {
+	position: relative;
+	font-size: 30px;
+	letter-spacing: 2px;
+	color: #115263;
+	text-transform: capitalize;
+	width: 100%;
+	text-align: center;
+	animation: animate 5s linear infinite;
+	font-weight: 800;
+}
+
+@keyframes animate {
+
+	0%,
+	18%,
+	20%,
+	40%,
+	60.1%,
+	67%,
+	80%,
+	90.1%,
+	92% {
+		color: #115263;
+		text-shadow: none;
+	}
+
+	18.1%,
+	20.1%,
+	50%,
+	60%,
+	67.1%,
+	80.1%,
+	90%,
+	92.1%,
+	100% {
+		color: #fff;
+		text-shadow: 0 0 10px #03bcf4,
+			0 0 20px #03bcf4,
+			0 0 40px #03bcf4,
+			0 0 80px #03bcf4,
+			0 0 160px #03bcf4;
+	}
+}
+
+nav img {
+	position: absolute;
+	top: 40%;
+	left: 6.5%;
+	background: #fff;
+	width: 100.8px;
+	border-radius: 50%;
+	box-shadow: 0 20px 50px rgb(0 0 0/ 50%);
+}
+
+.nav-links li {
+	display: inline-block;
+	padding: 0 20px;
+}
+
+.nav-links li a {
+	text-decoration: none;
+	color: #e8d57f;
+	transition: 0.7s ease .1s;
+}
+
+.nav-links li a:hover {
+	color: #0088A9;
+}
+
+.wrapper {
+	max-width: 1100px;
+}
+
+#grid {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 80px;
+}
+
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.gallery .image {
+	padding: 10px;
+	width: calc(100% / 3);
+	cursor: pointer;
+}
+
+.gallery .image span {
+	display: flex;
+	width: 100%;
+	overflow: hidden;
+}
+
+.gallery .image img {
+	width: 100%;
+	height: 300px;
+	vertical-align: middle;
+	transition: all 0.3s ease;
+}
+
+.gallery .image:hover img {
+	transform: scale(1.1);
+	background-image: linear-gradient(rgb(0 0 0 /80%));
+}
+
+.preview-box {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0.9);
+	background: none;
+	width: 65%;
+	z-index: 5;
+	opacity: 0;
+	pointer-events: none;
+	padding: 0 5px 5px 5px;
+}
+
+.preview-box.show {
+	z-index: 1000;
+	opacity: 1;
+	pointer-events: auto;
+	transform: translate(-50%, -50%) scale(1);
+	transition: all 0.3s ease;
+}
+
+.details .icon {
+	float: right;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	color: #fff;
+	font-size: 25px;
+	cursor: pointer;
+	border-radius: 50%;
+	background-color: #000;
+}
+
+.details .icon:hover {
+	background-color: #0882fc;
+}
+
+.preview-box .image-box {
+	display: flex;
+	width: 100%;
+	max-height: 95%;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.image-box .slide {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #fff;
+	font-size: 30px;
+	cursor: pointer;
+	background-color: #000;
+	padding: 7px;
+	margin: 0 -12px;
+}
+
+.image-box .slide:hover {
+	background-color: #0882fc;
+}
+
+.slide.prev {
+	left: 10px;
+}
+
+.slide.next {
+	right: 10px;
+}
+
+.image-box img {
+	width: 90%;
+	max-height: 570px;
+	padding: 5px;
+	border: 2px solid #fff;
+}
+
+.shadow {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+	display: none;
+	background: rgba(0, 0, 0, 0.45);
+}
+
+@media (min-width:1000px) {
+	.preview-box {
+		max-height: 95%;
+	}
+}
+
+@media(max-width: 1000px) {
+	.gallery .image {
+		width: calc(100% / 2);
+	}
+}
+
+@media(max-width: 600px) {
+	nav{
+		height: 160px;
+	}
+	.fa-bars{
+		visibility: visible;
+	}
+	.nav-links{
+		display: none;
+	}
+	.preview-box {
+		width: 100%;
+		max-height: 100%;
+	}
+
+	.slide.prev {
+		left: 0px;
+	}
+
+	.slide.next {
+		right: 0px;
+	}
+
+	.gallery .image {
+		width: 100%;
+		padding: 4px;
+	}
+}
+@media(max-width: 521px){
+	nav img {
+		top: 69%;
+	}
+}
